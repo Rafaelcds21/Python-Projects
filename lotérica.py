@@ -1,15 +1,15 @@
 from random import sample
 
-lista = []
+list = []
 
-num_min = int(input('Insira o menor número da lista: '))
-num_max = int(input('Insira o maior número da lista: '))
+num_min = int(input('Enter the lowest number from the list: '))
+num_max = int(input('Enter the highest number from the list: '))
 
 for i in range(num_min, num_max+1):
-    lista.append(i)
+    list.append(i)
 
-qtde_amostra = int(input('Insira a quantidade de números a serem sorteados: '))
+qtde_sample = int(input('Enter the number of numbers to be drawn:'))
 
-amostra = sample(lista, qtde_amostra)
+numbers_drawn = sample(list, qtde_sample)
 
-print(amostra)
+print(numbers_drawn)
