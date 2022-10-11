@@ -14,3 +14,5 @@ Um projeto em estágios iniciais de desenvolvimento para a construção de um as
 Previsão para o preço das ações do bitcoin, para pegar o arquivo atualizado dos preços do útlimo ano, acesse: https://finance.yahoo.com/ , pesquise por bitcoin, baixe o arquivo e repasse o path na variável 'tabela'. Estou tentando fazer esse processo ser de forma automática, mas não consigo baizar o pyautogui ou o selenium no jupyter notebook, se álguém puder me ajudar eu agradeço.
 # lotérica.py
 script que simula uma lotérica.
+# mega sena.py
+Histograma com os números mais frequentes na Mega-Sena até o jogo 2527 do dia 08/10/2022
