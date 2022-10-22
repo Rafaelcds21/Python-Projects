@@ -16,3 +16,9 @@ Previsão para o preço das ações do bitcoin, para pegar o arquivo atualizado 
 script que simula uma lotérica.
 # mega sena.py
 Histograma com os números da Mega-Sena até o jogo 2527 do dia 08/10/2022 e as suas frequências de saída.
+# Bhaskara.py
+Fórmula de Bhaskara para resolver equações do 2° grau.
+# pedra papel tesoura.py
+Jogo pedra, papel e tesoura contra o computador.
+# gerador de senhas.py
+É um gerador de senhas aleatórias.
