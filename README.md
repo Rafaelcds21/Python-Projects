@@ -22,5 +22,7 @@ Fórmula de Bhaskara para resolver equações do 2° grau.
 Jogo pedra, papel e tesoura contra o computador.
 # gerador de senhas.py
 É um gerador de senhas aleatórias.
-#qr_code generator
+# qr_code generator
 Gerador de qr codes.
+# pedra,papel,tesoura.py
+Recriação do famoso jogo pedra, papel e tesoura usando python.
