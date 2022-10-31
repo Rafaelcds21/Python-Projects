@@ -26,3 +26,9 @@ Jogo pedra, papel e tesoura contra o computador.
 Gerador de qr codes.
 # pedra,papel,tesoura.py
 Recriação do famoso jogo pedra, papel e tesoura usando python.
+# Jogo de perguntas e respostas
+Um simples jogo de perguntas e respostas.
+# Máximos e mínimos de funções
+Script que determina máximos e mínimos de funções.
+# histograma de dados randômicos
+histograma de uma série de dados randômicos.
