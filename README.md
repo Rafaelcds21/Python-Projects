@@ -32,3 +32,9 @@ Um simples jogo de perguntas e respostas.
 Script que determina máximos e mínimos de funções.
 # histograma de dados randômicos
 histograma de uma série de dados randômicos.
+# dinogame.py
+Recriação do jogo do dinossauro do Chrome, utilizando pygame.
+# pong.py
+Rccriação de um jogo clássico: pong, utilizando pygame.
+# snake.py
+Recriação do jogo snake, utilizando pygame.
