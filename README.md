@@ -38,3 +38,5 @@ Recriação do jogo do dinossauro do Chrome, utilizando pygame.
 Rccriação de um jogo clássico: pong, utilizando pygame.
 # snake.py
 Recriação do jogo snake, utilizando pygame.
+#cpf.py
+um gerador dos últimos 2 dígitos de um cpf aleatório, seguindo a lógica pela qual eles são calculados de verdade.
