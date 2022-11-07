@@ -35,7 +35,7 @@ histograma de uma série de dados randômicos.
 # dinogame.py
 Recriação do jogo do dinossauro do Chrome, utilizando pygame.
 # pong.py
-Rccriação de um jogo clássico: pong, utilizando pygame.
+Recriação de um jogo clássico: pong, utilizando pygame.
 # snake.py
 Recriação do jogo snake, utilizando pygame.
 # cpf.py
