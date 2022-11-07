@@ -9,9 +9,9 @@ Simplesmente da a soma de um intevalo qualquer de números
 # auxiliar_relatórios.py
 É um programa que a partir da inserção de uma base de dados .xlsx ou de dados de forma manual, o usuário receba uma análise estatística completa sem precisar ficar decorando fórmulas de excel ou qualquer coisa parecida.
 # JARVIS.py
-Um projeto em estágios iniciais de desenvolvimento para a construção de um assistente virtual, pretendo permitir que pessoas com deficiência visual possam usufruir do conhecimento disponível na internet por meio de controle de voz, de forma gratuita.
+Um projeto em estágios iniciais de desenvolvimento para a construção de um assistente virtual.
 # Previsão do preço de ações do bitcoin.py
-Previsão para o preço das ações do bitcoin, para pegar o arquivo atualizado dos preços do útlimo ano, acesse: https://finance.yahoo.com/ , pesquise por bitcoin, baixe o arquivo e repasse o path na variável 'tabela'. Estou tentando fazer esse processo ser de forma automática, mas não consigo baizar o pyautogui ou o selenium no jupyter notebook, se álguém puder me ajudar eu agradeço.
+Previsão para o preço das ações do bitcoin, para pegar o arquivo atualizado dos preços do útlimo ano, acesse: https://finance.yahoo.com/ , pesquise por bitcoin, baixe o arquivo e repasse o path na variável 'tabela'.
 # lotérica.py
 script que simula uma lotérica.
 # mega sena.py
@@ -40,3 +40,7 @@ Rccriação de um jogo clássico: pong, utilizando pygame.
 Recriação do jogo snake, utilizando pygame.
 # cpf.py
 um gerador dos últimos 2 dígitos de um cpf aleatório, seguindo a lógica pela qual eles são calculados de verdade.
+# clima.py
+Um app que coleta informações via API sobre o clima e informa ao usuário.
+# text_to_voice.py
+conversor de texto para voz.
