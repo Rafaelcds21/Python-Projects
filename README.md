@@ -44,3 +44,9 @@ um gerador dos últimos 2 dígitos de um cpf aleatório, seguindo a lógica pela
 Um app que coleta informações via API sobre o clima e informa ao usuário.
 # text_to_voice.py
 conversor de texto para voz.
+# sucessor e antecessor.py
+script que mostra o antecessor e o sucessor de um número.
+# múltiplos e submúltiplos.py
+script que  mostra o dobro, o triplo e a metade de um número.
+# média.py
+script que apresenta a média de 2 números.
