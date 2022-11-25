@@ -1,52 +1,14 @@
 # python-projects
 Estes são os meus projetos feitos em python, espero poder ajudar pessoas com algum destes programas
-# área.py
-É um programa para calcular áreas de polígonos
-# volume.py
-Realiza o cálculo do volume de diversos tipos de sólidos de forma automática.
-# soma de N números.py
-Simplesmente da a soma de um intevalo qualquer de números
-# auxiliar_relatórios.py
-É um programa que a partir da inserção de uma base de dados .xlsx ou de dados de forma manual, o usuário receba uma análise estatística completa sem precisar ficar decorando fórmulas de excel ou qualquer coisa parecida.
-# JARVIS.py
-Um projeto em estágios iniciais de desenvolvimento para a construção de um assistente virtual.
-# Previsão do preço de ações do bitcoin.py
-Previsão para o preço das ações do bitcoin, para pegar o arquivo atualizado dos preços do útlimo ano, acesse: https://finance.yahoo.com/ , pesquise por bitcoin, baixe o arquivo e repasse o path na variável 'tabela'.
-# lotérica.py
-script que simula uma lotérica.
-# mega sena.py
-Histograma com os números da Mega-Sena até o jogo 2527 do dia 08/10/2022 e as suas frequências de saída.
-# Bhaskara.py
-Fórmula de Bhaskara para resolver equações do 2° grau.
-# pedra papel tesoura.py
-Jogo pedra, papel e tesoura contra o computador.
-# gerador de senhas.py
-É um gerador de senhas aleatórias.
-# qr_code generator
-Gerador de qr codes.
-# pedra,papel,tesoura.py
-Recriação do famoso jogo pedra, papel e tesoura usando python.
-# Jogo de perguntas e respostas
-Um simples jogo de perguntas e respostas.
-# Máximos e mínimos de funções
-Script que determina máximos e mínimos de funções.
-# histograma de dados randômicos
-histograma de uma série de dados randômicos.
-# dinogame.py
-Recriação do jogo do dinossauro do Chrome, utilizando pygame.
-# pong.py
-Recriação de um jogo clássico: pong, utilizando pygame.
-# snake.py
-Recriação do jogo snake, utilizando pygame.
-# cpf.py
-um gerador dos últimos 2 dígitos de um cpf aleatório, seguindo a lógica pela qual eles são calculados de verdade.
-# clima.py
-Um app que coleta informações via API sobre o clima e informa ao usuário.
-# text_to_voice.py
-conversor de texto para voz.
-# sucessor e antecessor.py
-script que mostra o antecessor e o sucessor de um número.
-# múltiplos e submúltiplos.py
-script que  mostra o dobro, o triplo e a metade de um número.
-# média.py
-script que apresenta a média de 2 números.
+# IA
+Projetos de inteligência artificial feitos em Python.
+# aplicativos
+Aplicativos para as mais diversas funções.
+# análise de dados
+#Projetos de análise de dados usando APIs e base de dados públicas.
+# machine learning
+Projetos de aprendizado de máquinas.
+# jogos
+Jogos feitos em Python.
+# matemática
+Projetos relacionados as mais diversas áreas da matemática.
