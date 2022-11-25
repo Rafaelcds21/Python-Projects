@@ -7,7 +7,7 @@ Aplicativos para as mais diversas funções.
 # análise de dados
 #Projetos de análise de dados usando APIs e base de dados públicas.
 # machine learning
-Projetos de aprendizado de máquinas.
+Projetos de aprendizado de máquina.
 # jogos
 Jogos feitos em Python.
 # matemática
