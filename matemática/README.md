@@ -16,3 +16,5 @@ Mostra o antecessor e o sucessor de um dado número.
 Realiza o calculo do volume de diversos sólidos geométricos.
 # área.py
 Realiza o calculo da área de diversas figuras geométricas.
+# Cálculo diferencial e integfral.py
+Um script que mostra a deriva e a integral de funções.
