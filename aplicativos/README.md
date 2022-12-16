@@ -10,3 +10,5 @@ Simulador de lotérica, sorteando uma dada quantidade de número.
 Gerador de qr codes.
 # text_to_voice.py
 Converte qualquer texto para áudio.
+# encurtador de url.py
+Um script para encurtar urls.
