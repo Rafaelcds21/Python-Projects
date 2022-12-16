@@ -12,3 +12,5 @@ Gerador de qr codes.
 Converte qualquer texto para áudio.
 # encurtador de url.py
 Um script para encurtar urls.
+# código de barras.py
+Scrupt que transforma um texto em um código de barras.
