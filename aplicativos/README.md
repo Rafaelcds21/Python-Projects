@@ -14,3 +14,5 @@ Converte qualquer texto para áudio.
 Um script para encurtar urls.
 # código de barras.py
 Scrupt que transforma um texto em um código de barras.
+# tradutor de texo.py
+Realiza a tradução de um texto em pt-br para inglês.
