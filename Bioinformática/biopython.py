@@ -35,10 +35,5 @@ print(f'Para converter uma variável do tipo Seq para string, basta usar str(var
 print(f'Para converter uma variável do tipo string para Seq, basta usar Seq(variável), tipo do trecho usando esse '
       f'método: {type(Seq(str(trecho)))}')
 
-#
-print(f'{}')
-#
-print(f'{}')
-
 # Imprime a porcentagem de bases nitrogenadas que são guanina ou citosina
 print(f'A porcentagem de bases nitrogenadas que são guanina ou citosina é {"%.2f" % GC(trecho)}%')
