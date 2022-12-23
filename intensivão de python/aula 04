@@ -1,0 +1,70 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import r2_score
+
+# Passo 1:
+
+# Passo 2:
+
+# Passo 3: Extração/Obtenção de dados
+tabela = pd.read_csv(r'C:\Users\Rafael Campos\Downloads\advertising.csv')
+print(tabela)
+
+# Passo 4: Ajuste de dados (Tratamento/Limpeza)
+print(tabela.info())
+
+# Passo 5: Análise Exploratória
+print(tabela.corr())
+
+# cria o gráfico
+sns.heatmap(tabela.corr(), cmap="Wistia", annot=True)
+
+# exibe o gráfico
+plt.show()
+
+# Passo 6: Modelagem + Algoritmos (Aqui que entra a Inteligência Artificial, se necessário)
+
+# y -> é quem você quer prever
+y = tabela['Vendas']
+
+# x -> quem eu vou usar para prever y, ou seja, o resto da tabela
+x = tabela[['TV', 'Radio', 'Jornal']]
+
+x_treino, x_teste, y_treino, y_teste = train_test_split(x, y, test_size=0.3, random_state=1)
+
+# Importa a IA
+
+# Cria a IA
+modelo_regressaolinear = LinearRegression()
+modelo_arvoredecisao = RandomForestRegressor()
+
+# Treina a IA
+modelo_regressaolinear.fit(x_treino, y_treino)
+modelo_arvoredecisao.fit(x_treino, y_treino)
+
+# Passo 7: Interpretação de resultados
+
+# Fazer a previsão
+previsao_regressaolinear = modelo_regressaolinear.predict(x_teste)
+previsao_arvoredecisao = modelo_arvoredecisao.predict(x_teste)
+
+# Comparar a previsão com o y_teste
+print(r2_score(y_teste, previsao_regressaolinear))
+print(r2_score(y_teste, previsao_arvoredecisao))
+
+tabela_auxiliar = pd.DataFrame()
+tabela_auxiliar['y_teste'] = y_teste
+tabela_auxiliar['Previsão Regressão Linear'] = previsao_regressaolinear
+tabela_auxiliar['Previsão árvore decisão'] = previsao_arvoredecisao
+plt.figure(figsize=(15, 5))
+sns.lineplot(data=tabela_auxiliar)
+plt.show()
+
+tabela_nova = pd.read_csv(r'C:\Users\Rafael Campos\Downloads\novos.csv')
+print(tabela_nova)
+previsao = modelo_arvoredecisao.predict(tabela_nova)
+print(previsao)
