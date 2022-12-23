@@ -1,0 +1,70 @@
+from selenium import webdriver  # Permite criar o navegador
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.keys import Keys  # Permite você escrever no navegador
+from selenium.webdriver.common.by import By  # Permite você selecionar itens no navegador
+import time
+import pandas as pd
+
+# Passo 1: Pegar a dotação do dólar
+
+# Abrir o navegador
+navegador = webdriver.Chrome(ChromeDriverManager().install())
+
+# Entrar no google
+navegador.get('https://www.google.com.br/')
+
+time.sleep(5)
+
+# Pesquisar no google por 'cotação dólar'
+navegador.find_element('xpath', '/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys(
+    "cotação dólar")
+navegador.find_element('xpath', '/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys(
+    Keys.ENTER)
+
+# Pegar a cotação que está no google
+cotacao_dolar = navegador.find_element('xpath', '//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/'
+                                                'span[1]').get_attribute('data-value')
+print(cotacao_dolar)
+
+# Passo 2: Pegar a cotação do euro
+
+# Pesquisar no google por 'cotação euro'
+navegador.find_element('xpath', '/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys(
+    "cotação euro")
+navegador.find_element('xpath', '/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys(
+    Keys.ENTER)
+
+# Pegar a cotação que está no google
+cotacao_euro = navegador.find_element('xpath', '//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/'
+                                               'span[1]').get_attribute('data-value')
+print(cotacao_euro)
+
+# Passo 3: Pegar a cotação do ouro
+# Entrar no site
+navegador.get('https://www.melhorcambio.com/ouro-hoje')
+
+time.sleep(5)
+
+# Pegar a cotação que está no google
+cotacao_ouro = navegador.find_element('xpath', '//*[@id="comercial"]').get_attribute('value')
+cotacao_ouro = cotacao_ouro.replace(',', '.')
+print(cotacao_ouro)
+
+navegador.quit()
+
+# Passo 4: Atualizar a base de preços (atualizando o preço de compra e o de venda)
+arquivo = pd.read_excel(r'C:\Users\Rafael Campos\Downloads\Produtos.xlsx')
+
+# Atualizar a coluna cotação
+arquivo.loc[arquivo['Moeda'] == 'Dólar', 'Cotação'] = float(cotacao_dolar)
+arquivo.loc[arquivo['Moeda'] == 'Euro', 'Cotação'] = float(cotacao_euro)
+arquivo.loc[arquivo['Moeda'] == 'Ouro', 'Cotação'] = float(cotacao_ouro)
+
+# Atualizar a coluna de preço de compra = preço original * cotação
+arquivo['Preço de Compra'] = arquivo['Preço Original']*arquivo['Cotação']
+
+# Atualizar a coluna de preço de venda = preço de venda * margem
+arquivo['Preço de Venda'] = arquivo['Preço de Compra']*arquivo['Margem']
+
+# Passo 5: Exportar a base de preços atualizada
+arquivo.to_excel('Produtos Novo.xlsx', indez=False)
