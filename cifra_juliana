@@ -1,0 +1,135 @@
+frase = str(input("Insira a frase: ")).lower()
+
+palavra_car_esp = frase.split(" ")
+
+lista_palavra = []
+
+for i in range(0, len(palavra_car_esp)):
+    palavra = ''
+
+    if ',' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split(',')[0]
+    elif '!' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("!")[0]
+
+    elif '@' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("@")[0]
+
+    elif '#' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("#")[0]
+
+    elif '$' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("$")[0]
+
+    elif '%' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("%")[0]
+
+    elif '¨' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("¨")[0]
+
+    elif '&' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("&")[0]
+
+    elif '*' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("*")[0]
+
+    elif '(' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("(")[0]
+
+    elif ')' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split(")")[0]
+
+    elif '[' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("[")[0]
+
+    elif ']' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("]")[0]
+
+    elif '{' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("{")[0]
+
+    elif '}' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("}")[0]
+
+    elif '/' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("/")[0]
+
+    elif '?' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("?")[0]
+
+    elif '°' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("°")[0]
+
+    elif '+' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("+")[0]
+
+    elif '=' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("=")[0]
+
+    elif '-' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("-")[0]
+
+    elif '_' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("_")[0]
+
+    elif '"' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split('"')[0]
+
+    elif "'" in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("'")[0]
+
+    elif '|' in palavra_car_esp[i]:
+        palavra = palavra_car_esp[i].split("|")[0]
+    else:
+        palavra = palavra_car_esp[i]
+
+    lista_palavra.append(palavra)
+
+lista_letras = []
+
+for i in range(0, len(lista_palavra)):
+    letras = list(lista_palavra[i])
+
+    for j in range(0, len(letras)):
+        lista_letras.append(letras[j])
+
+num_conversor = int(input("Insira o número que será usado para converter a frase: "))
+
+lista_letra = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+               'v', 'w', 'x', 'y', 'z']
+
+indice = 0
+
+lista_cifrada = []
+
+for i in range(0, len(lista_letras)):
+    for j in range(0, len(lista_letra)):
+        if lista_letras[i] == lista_letra[j]:
+            lista_cifrada.append(lista_letra[j+num_conversor])
+
+frase_cifrada = ''
+
+for i in range(0, len(lista_cifrada)):
+    frase_cifrada += lista_cifrada[i]
+
+print(frase_cifrada)
+
+frase_para_decifrar = str(input("Insira a frase cifrada: ")).lower()
+
+indice_reverso = int(input("Insira o indice para reverter a cifragem: "))
+
+lista_frase_cifrada = list(frase_para_decifrar)
+
+lista_frase_decifrada = []
+
+for i in range(0, len(lista_frase_cifrada)):
+    for j in range(0, len(lista_letra)):
+        if lista_frase_cifrada[i] == lista_letra[j]:
+            lista_frase_decifrada.append(lista_letra[j-indice_reverso])
+
+palavra_decifrada = ''
+
+for i in range(0, len(lista_frase_decifrada)):
+    palavra_decifrada += lista_frase_decifrada[i]
+
+print(palavra_decifrada)
