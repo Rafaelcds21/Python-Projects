@@ -1,0 +1,78 @@
+import pyautogui
+import time
+import pyperclip
+import pandas as pd
+
+# pyautogui.click -> clicar
+# pyautogui.press -> apertar 1 tecla
+# pyautogui.hotkey -> conjunto de teclas
+# pyautogui.write -> escreve um texto
+
+pyautogui.PAUSE = 1
+
+# Passo 1: Entrar no sistema da empresa (no nosso caso é o link do drive)
+pyautogui.press('winleft')
+pyautogui.write('chrome')
+pyautogui.press('enter')
+
+time.sleep(5)
+
+pyautogui.click(x=323, y=414)
+pyautogui.hotkey('ctrl', 't')
+
+pyperclip.copy('https://drive.google.com/drive/folders/149xknr9JvrlEnhNWO49zPcw0PW5icxga')
+pyautogui.hotkey('ctrl', 'v')
+pyautogui.press('enter')
+
+time.sleep(5)
+
+pyautogui.click(x=295, y=263)
+
+# Passo 2: Navegar no sistema e encontrar a base de vendas (entrar na pasta exportar)
+pyautogui.click(x=295, y=263, clicks=2)
+time.sleep(5)
+
+# Passo 3: Fazer o download da base de vendas
+pyautogui.click(x=280, y=264)  # clicar no arquivo
+pyautogui.click(x=866, y=172)  # clicar nos 3 pontinhos
+pyautogui.click(x=704, y=521)  # clicar no fazer download
+time.sleep(5)
+
+# Passo 4: Importar a base de vendas pro Python
+tabela = pd.read_excel(r"C:\Users\Rafael Campos\Downloads\Vendas - Dez (1).xlsx")
+
+# Passo 5: Calcular os indicadores da empresa
+faturamento = tabela['Valor Final'].sum()
+quantidade = tabela['Quantidade'].sum()
+
+# Passo 6: Enviar um e-mail para a diretoria com os indicadores de venda
+pyautogui.hotkey('ctrl', 't')
+pyperclip.copy('https://mail.google.com/mail/u/0/?tab=rm&ogbl')
+pyautogui.hotkey('ctrl', 'v')
+pyautogui.press('enter')
+
+time.sleep(10)
+
+pyautogui.click(x=99, y=204)
+
+time.sleep(10)
+
+pyautogui.write('camposdasilva.rafael@gmail.com')
+pyautogui.press('tab')  # selecionar o e-mail
+pyautogui.press('tab')  # pular para o campo de assunto
+pyautogui.write('Relatório de vendas')
+pyautogui.press('tab')  # pular para o campo do e-mail
+
+texto = f"""
+Prezados,
+
+Segue relatório de vendas.
+Faturamento: R${faturamento},00
+Quantidade de produtos vendidos: {quantidade}
+
+Qualquer dúvida estou a disposição.
+Att.,
+Rafael Campos da Silva
+"""
+pyautogui.write(texto)
+pyautogui.click(x=534, y=695)
