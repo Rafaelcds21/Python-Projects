@@ -1,0 +1,39 @@
+import pandas as pd
+import plotly.express as px
+
+# Passo 1: Importar as bases de dados da empresa
+
+tabela = pd.read_csv(r'C:\Users\Rafael Campos\Downloads\telecom_users (1).csv')
+print(tabela)
+
+# Passo 2: Visualizar as bases dados
+
+# - Entender quais as informações que a gente tem
+# - Descobrir as cagadas da base de dados
+
+# axis = 0 -> linha, axis = 1 -> coluna
+tabela = tabela.drop('Unnamed: 0', axis=1)
+
+# Passo 3: Tratamento de dados
+
+# valores são reconhecidos da forma errada
+tabela['TotalGasto'] = pd.to_numeric(tabela['TotalGasto'], errors='coerce')
+
+# valores vazios
+# colunas completamente vazias
+tabela = tabela.dropna(how='all', axis=1)
+# linhas com pelo menos 1 valor vazio
+tabela = tabela.dropna(how='any', axis=0)
+
+# Passo 4: Análise inicial (entender como estão os cancelamentos)
+print(tabela['Churn'].value_counts())
+print(tabela['Churn'].value_counts(normalize=True))
+
+# Passo 5: Análise completa (entender o motivo dos cancelamentos)
+
+for coluna in tabela.columns:
+    # criar o gráfico
+    grafico = px.histogram(tabela, x=coluna, color='Churn', text_auto=True)
+
+    # exibir o gráfico
+    grafico.show()
