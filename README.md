@@ -1,5 +1,3 @@
-# python-projects
-Estes são os meus projetos feitos em python, espero poder ajudar pessoas com algum destes programas
 # Bioinformática
 Script que faz algumas análises básicas usando a biblioteca biopython. Total de projetos: 1
 # IA
