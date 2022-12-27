@@ -24,3 +24,5 @@ Jogos feitos em Python, usando a biblioteca pygame. Total de projetos: 12
 Projetos relacionados as mais diversas áreas da matemática. Total de projetos: 12
 # projetos inacabados
 Projetos que ainda faltam algumas funcionalidades para serem implementadas. Total de projetos: 13
+# Projetos totais
+143 projetos e aumentando.
