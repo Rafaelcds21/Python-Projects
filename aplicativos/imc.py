@@ -1,3 +1,6 @@
+from tkinter import *
+
+
 def massa_ideal(altura_real):
     massaidealmin = 18.5 * (altura_real ** 2)
     massaidealmax = 24.9 * (altura_real ** 2)
@@ -10,35 +13,75 @@ def altura_ideal(massa_real):
     return alturaidealmin, alturaidealmax
 
 
-massa = float(input('Insira massa: '))
-altura = float(input('Insira altura: '))
+def calc_imc():
+    if ',' in massa.get():
+        massa_value = float(massa.get().replace(',', '.'))
+    else:
+        massa_value = float(massa.get())
 
-imc = massa/(altura**2)
+    if ',' in altura.get():
+        altura_value = float(altura.get().replace(',', '.'))
+    else:
+        altura_value = float(altura.get())
 
-print(imc)
+    imc = massa_value/(altura_value**2)
 
-massa_ideal_minima, massa_ideal_maxima = massa_ideal(altura)
-altura_ideal_minima, altura_ideal_maxima = altura_ideal(massa)
+    mostrar_resultado = Label(text=f'Seu IMC é {round(imc, 2)}')
+    mostrar_resultado.grid(row=2, column=0, columnspan=3)
 
-if imc < 18.5:
-    print(f"Você possui Magreza. Para a sua altura você deveria ter entre {massa_ideal_minima} e {massa_ideal_maxima} "
-          f"e para o seu peso você deveria ter {altura_ideal_minima} e {altura_ideal_maxima}")
+    massa_ideal_minima, massa_ideal_maxima = massa_ideal(altura_value)
+    altura_ideal_minima, altura_ideal_maxima = altura_ideal(massa_value)
 
-elif 18.5 < imc < 24.9:
-    print("Você está com um peso ideal para sua altura.")
+    if imc < 18.5:
+        text = f"Você possui Magreza. Para a sua altura você deveria ter entre {round(massa_ideal_minima, 2)} Kg e " \
+               f"{round(massa_ideal_maxima, 2)} Kg e para o seu peso você deveria ter {round(altura_ideal_minima, 2)}" \
+               f" m e {round(altura_ideal_maxima, 2)} m"
 
-elif 25 < imc < 29.9:
-    print(f"Você possui Sobrepeso. Para a sua altura você deveria ter entre {massa_ideal_minima} e "
-          f"{massa_ideal_maxima} e para o seu peso você deveria ter {altura_ideal_minima} e {altura_ideal_maxima}")
+    elif 18.5 < imc < 24.9:
+        text = f'Você está com um peso ideal para sua altura.'
 
-elif 30 < imc < 34.9:
-    print(f"Você possui Obesidade grau I. Para a sua altura você deveria ter entre {massa_ideal_minima} e "
-          f"{massa_ideal_maxima} e para o seu peso você deveria ter {altura_ideal_minima} e {altura_ideal_maxima}")
+    elif 25 < imc < 29.9:
+        text = f"Você possui Sobrepeso. Para a sua altura você deveria ter entre {round(massa_ideal_minima, 2)} Kg e " \
+               f"{round(massa_ideal_maxima, 2)} Kg e para o seu peso você deveria ter {round(altura_ideal_minima, 2)}" \
+               f" m e {round(altura_ideal_maxima, 2)} m"
 
-elif 35 < imc < 39.9:
-    print(f"Você possui Obesidade grau II. Para a sua altura você deveria ter entre {massa_ideal_minima} e "
-          f"{massa_ideal_maxima} e para o seu peso você deveria ter {altura_ideal_minima} e {altura_ideal_maxima}")
+    elif 30 < imc < 34.9:
+        text = f"Você possui Obesidade grau I. Para a sua altura você deveria ter entre {round(massa_ideal_minima, 2)}" \
+               f" Kg e {round(massa_ideal_maxima, 2)} Kg e para o seu peso você deveria ter " \
+               f"{round(altura_ideal_minima, 2)} m e {round(altura_ideal_maxima, 2)} m"
 
-elif imc > 40:
-    print(f"Você possui Obesidade grau III. Para a sua altura você deveria ter entre {massa_ideal_minima} e "
-          f"{massa_ideal_maxima} e para o seu peso você deveria ter {altura_ideal_minima} e {altura_ideal_maxima}")
+    elif 35 < imc < 39.9:
+        text = f"Você possui Obesidade grau II. Para a sua altura você deveria ter entre {round(massa_ideal_minima, 2)}" \
+               f" Kg e {round(massa_ideal_maxima, 2)}  Kg e para o seu peso você deveria ter " \
+               f"{round(altura_ideal_minima, 2)} m e {round(altura_ideal_maxima, 2)} m"
+
+    elif imc > 40:
+        text = f"Você possui Obesidade grau III. Para a sua altura você deveria ter entre {round(massa_ideal_minima, 2)}" \
+               f" Kg e {round(massa_ideal_maxima, 2)} Kg e para o seu peso você deveria ter " \
+               f"{round(altura_ideal_minima, 2)} m e {round(altura_ideal_maxima, 2)} m"
+
+    res_ideal = Label(text=f'{text}')
+    res_ideal.grid(row=3, column=0, columnspan=3)
+
+
+janela = Tk()
+
+janela.geometry('900x200')
+janela.title('Calculadora de IMC')
+
+mass_txt = Label(text='Insira a sua massa (em Kg):')
+mass_txt.grid(row=0, column=0)
+
+massa = Entry()
+massa.grid(row=0, column=1)
+
+height_txt = Label(text='Insira a sua altura (em m):')
+height_txt.grid(row=1, column=0)
+
+altura = Entry()
+altura.grid(row=1, column=1)
+
+btn_calc_imc = Button(text='Clique aqui para calcular seu IMC', command=calc_imc)
+btn_calc_imc.grid(row=0, column=2, rowspan=2)
+
+janela.mainloop()
