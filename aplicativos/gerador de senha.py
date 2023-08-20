@@ -1,30 +1,36 @@
-import random
+from random import sample, choice
+import tkinter as tk
 
-letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
-          'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
-          'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-inicio = input('Deseja gerar senha? ')
+def gerar_senha():
+    char_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+                 'v', 'w', 'x', 'y', 'z', 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-qtde_letras = int(input('Insira a quantidade de letras: '))
-qtde_numeros = int(input('Insira a quantidade de números: '))
+    senha_list = sample(char_list, int(entrada.get()))
+    senha = ''
 
-lista = []
+    for char in senha_list:
+        if type(char) == str:
+            tamanho_letra = choice(['upper', 'lower'])
+            if tamanho_letra == 'upper':
+                char = char.upper()
+            elif tamanho_letra == 'lower':
+                char = char.lower()
+        senha += f'{char}'
 
-if inicio == 'sim':
-    if 0 < qtde_letras <= len(letras) and 0 < qtde_numeros <= len(numeros):
-        letras_random = random.sample(letras, qtde_letras)
-        numeros_random = random.sample(numeros, qtde_numeros)
+    resultado = tk.Label(janela, text=f'Senha = {senha}')
+    resultado.grid(row=1, column=0, columnspan=3)
 
-        for i in range(0, len(letras_random)):
-            lista.append(letras_random[i])
 
-        for j in range(0, len(numeros_random)):
-            lista.append(numeros_random[j])
+janela = tk.Tk()
 
-        random.shuffle(lista)
-        print(f'A sua senha é: {str(lista)}')
+lbl = tk.Label(janela, text='Insira a quantidade de dígitos:')
+lbl.grid(row=0, column=0)
 
-    else:
-        print(f'Insira uma quantidade menor de números ou letras. Quantidade máxima de letras = {len(letras)}, quantidade máxima de números = {len(numeros)}')
+entrada = tk.Entry(janela)
+entrada.grid(row=0, column=1)
+
+button = tk.Button(janela, text='Gerar senha', command=gerar_senha)
+button.grid(row=0, column=2)
+
+janela.mainloop()
